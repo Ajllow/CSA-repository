@@ -7,11 +7,12 @@ public class GuessingGame {
         int counter = 0;
         int totalGames = 0;
         int totalGuesses = 0;
-        double guessesPerGame = 0;
-        int bestGame = Integer.MAX_VALUE;
+        int bestGame = 0;//fix later
+        int currentGame = 0;//fix later
+        double guessesPerGame = 0;//fix later
         String playAgain = "y";
 
-        while (playAgain.toLowerCase().equals("y")) {
+        while (playAgain.substring(0,1).equalsIgnoreCase("y")) {
             magicNumber = (int) (Math.random() * 99) + 1;
             theGuess = 0;
             counter = 0;
@@ -25,22 +26,26 @@ public class GuessingGame {
                     System.out.println("It's higher.");
                 if (theGuess > magicNumber)
                     System.out.println("It's lower.");
-                if (theGuess == magicNumber)
+                if (theGuess == magicNumber) {
+                    if (counter == 1) ;
+                    {
+                        System.out.println("You got it right in 1 guess!");
+                    }
+                    else
                     System.out.println("You got it right in " + (counter + 1) + " guesses!");
-                counter++;
+                    counter++;
+                }
 
             }
             totalGames++;
             totalGuesses += counter;
-            if (counter < bestGame) {
-                bestGame = counter;
-            }
+            currentGame++;//fix later
+
             System.out.println("Do you want to play again?");
             playAgain = sc.next();
         }
         System.out.println("Overall results:");
         System.out.println("Total games = " + totalGames);
         System.out.println("Total guesses = " + totalGuesses);
-        System.out.println("Best game = " + bestGame);
     }
 }
