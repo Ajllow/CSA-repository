@@ -31,9 +31,6 @@ public class GuessingGame {
                     {
                         System.out.println("You got it right in 1 guess!");
                     }
-                    else
-                    System.out.println("You got it right in " + (counter + 1) + " guesses!");
-                    counter++;
                 }
 
             }
