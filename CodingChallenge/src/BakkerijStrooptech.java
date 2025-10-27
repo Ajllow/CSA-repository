@@ -45,6 +45,10 @@ public class BakkerijStrooptech {
             revenue = revenue + orderTotal;
             systemOpen = sc.nextInt();//how do I set system open to 0?
         }
+        while (systemOpen == 0) {
+            System.out.println("hi");
+            System.out.println("bye");
+        }
 
     }
 }
