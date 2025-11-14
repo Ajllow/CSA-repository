@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CSA-repository.iml" filepath="$PROJECT_DIR$/.idea/CSA-repository.iml" />
       <module fileurl="file://$PROJECT_DIR$/CodingChallenge/CodingChallenge.iml" filepath="$PROJECT_DIR$/CodingChallenge/CodingChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chatbot/chatbot.iml" filepath="$PROJECT_DIR$/chatbot/chatbot.iml" />
     </modules>
   </component>
 </project>
