@@ -10,7 +10,14 @@ public class Magpie3
     private String transformIWantStatement(String statement)
     {
         // Your code for Activity 3 Part b goes here
-        return ""; // Modify this statement to return the correct String
+        String response = "";
+        int position = findPhrase(statement, "I want", 0);
+        if (position != 1)
+        {
+            String blank = statement.substring(position + 6, statement.length());
+            response = "I would like" + blank + ", too";
+        }
+        return response; // Modify this statement to return the correct String
     }
 
 
@@ -25,8 +32,15 @@ public class Magpie3
     private String transformWouldYouLikeStatement(String statement)
     {
         // Your code for Activity 3 Part c goes here
-
-        return ""; // Modify this statement to return the correct String
+        String response = "";
+        int position1 = findPhrase(statement, "Would you like", 0);//pos of would you like
+        int position2 = findPhrase(statement, "with me?", position1 + 1);
+        if (position1 != 1 && position2 != 1)
+        {
+            String blank = statement.substring(position1 + 14, position2);
+            response = "When would you like me to" + blank + "with you?";
+        }
+        return response; // Modify this statement to return the correct String
     }
 
 
