@@ -9,7 +9,6 @@ public class Magpie3
      */
     private String transformIWantStatement(String statement)
     {
-<<<<<<< HEAD
         String lastChar = statement.substring(statement.length() - 1);
         if (lastChar.equals("."))
         {
@@ -18,10 +17,6 @@ public class Magpie3
         int position = findPhrase(statement, "I want", 0);
         String blank = statement.substring(position + 6);
         return "I would like" + blank + ", too"; // Modify this statement to return the correct String
-=======
-        // Your code for Activity 3 Part b goes here
-        return ""; // Modify this statement to return the correct String
->>>>>>> parent of 988c68a (magpie version 3)
     }
 
 
@@ -36,7 +31,6 @@ public class Magpie3
     private String transformWouldYouLikeStatement(String statement)
     {
         // Your code for Activity 3 Part c goes here
-<<<<<<< HEAD
         String lastChar = statement.substring(statement.length() - 1);
         if (lastChar.equals("?"))
         {
@@ -51,10 +45,6 @@ public class Magpie3
             response = "When would you like me to" + blank + "with you?";
         }
         return response; // Modify this statement to return the correct String
-=======
-
-        return ""; // Modify this statement to return the correct String
->>>>>>> parent of 988c68a (magpie version 3)
     }
 
 

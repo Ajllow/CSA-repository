@@ -15,7 +15,7 @@ public class MagpieRunner3
         Scanner in = new Scanner (System.in);
         String statement = in.nextLine();
 
-        while (!statement.equals("Bye"))
+        while (!statement.equals("Bye") && !statement.equals("bye"))
         {
             String response = maggie.getResponse(statement);
             System.out.println(response);
