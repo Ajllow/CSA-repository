@@ -7,6 +7,18 @@ public class Magpie3
      *            "I want"
      * @return the transformed statement
      */
+    private String transformWhenIsStatement(String statement)
+    {
+        String lastChar = statement.substring(statement.length() - 1);
+        if (lastChar.equals("."))
+        {
+            statement = statement.substring(0, statement.length() - 1);
+        }
+        int position = findPhrase (statement, "I have to study for", 0);
+        String restOfStatement = statement.substring(position + 19);
+        return "When is your" + restOfStatement + " test?";
+    }
+
     private String transformIDislikeStatement(String statement)
     {
         String lastChar = statement.substring(statement.length() - 1);
@@ -89,6 +101,10 @@ public class Magpie3
         else if (findPhrase(statement, "I dislike", 0) >= 0)
         {
             response = transformIDislikeStatement(statement);
+        }
+        else if (findPhrase(statement, "I have to study for", 0) >= 0)
+        {
+            response = transformWhenIsStatement(statement);
         }
         else
         {
