@@ -9,15 +9,14 @@ public class Magpie3
      */
     private String transformIWantStatement(String statement)
     {
-        // Your code for Activity 3 Part b goes here
-        String response = "";
-        int position = findPhrase(statement, "I want", 0);
-        if (position != 1)
+        String lastChar = statement.substring(statement.length() - 1);
+        if (lastChar.equals("."))
         {
-            String blank = statement.substring(position + 6, statement.length());
-            response = "I would like" + blank + ", too";
+            statement = statement.substring(0, statement.length() - 1);
         }
-        return response; // Modify this statement to return the correct String
+        int position = findPhrase(statement, "I want", 0);
+        String blank = statement.substring(position + 6);
+        return "I would like" + blank + ", too"; // Modify this statement to return the correct String
     }
 
 
@@ -32,8 +31,13 @@ public class Magpie3
     private String transformWouldYouLikeStatement(String statement)
     {
         // Your code for Activity 3 Part c goes here
-        String response = "";
+        String lastChar = statement.substring(statement.length() - 1);
+        if (lastChar.equals("?"))
+        {
+            statement = statement.substring(0, statement.length() - 1);
+        }
         int position1 = findPhrase(statement, "Would you like", 0);//pos of would you like
+        String blank = statement.substring(position + 15);
         int position2 = findPhrase(statement, "with me?", position1 + 1);
         if (position1 != 1 && position2 != 1)
         {
