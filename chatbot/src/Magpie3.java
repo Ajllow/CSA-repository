@@ -7,17 +7,28 @@ public class Magpie3
      *            "I want"
      * @return the transformed statement
      */
+    private String transformIDislikeStatement(String statement)
+    {
+        String lastChar = statement.substring(statement.length() - 1);
+        if (lastChar.equals("."))
+        {
+            statement = statement.substring(0, statement.length() - 1);
+        }
+        int position = findPhrase (statement, "I dislike", 0);
+        String restOfStatement = statement.substring(position + 9);
+        return "You said 'I dislike" + restOfStatement + "'? What do you dislike about it?";
+    }
+
     private String transformIWantStatement(String statement)
     {
-        // Your code for Activity 3 Part b goes here
-        String response = "";
-        int position = findPhrase(statement, "I want", 0);
-        if (position != 1)
+        String lastChar = statement.substring(statement.length() - 1);
+        if (lastChar.equals("."))
         {
-            String blank = statement.substring(position + 6, statement.length());
-            response = "I would like" + blank + ", too";
+            statement = statement.substring(0, statement.length() - 1);
         }
-        return response; // Modify this statement to return the correct String
+        int position = findPhrase (statement, "I want", 0);
+        String restOfStatement = statement.substring(position + 6);
+        return "I would like" + restOfStatement + ", too!";
     }
 
 
@@ -31,16 +42,17 @@ public class Magpie3
      */
     private String transformWouldYouLikeStatement(String statement)
     {
-        // Your code for Activity 3 Part c goes here
-        String response = "";
-        int position1 = findPhrase(statement, "Would you like", 0);//pos of would you like
-        int position2 = findPhrase(statement, "with me?", position1 + 1);
-        if (position1 != 1 && position2 != 1)
+        String lastChar = statement.substring(statement.length() - 1);
+        if (lastChar.equals("?"))
         {
-            String blank = statement.substring(position1 + 14, position2);
-            response = "When would you like me to" + blank + "with you?";
+            statement = statement.substring(0, statement.length() - 1);
         }
-        return response; // Modify this statement to return the correct String
+        int position = findPhrase (statement, "Would you like", 0);
+        String restOfStatement = statement.substring(position + 15);
+        position = findPhrase(restOfStatement, "with me", 0);
+        restOfStatement = restOfStatement.substring(0, position);
+        return "When would you like me " + restOfStatement +
+                "with you?";
     }
 
 
@@ -73,6 +85,10 @@ public class Magpie3
         else if (findPhrase(statement, "Would you like", 0) >= 0)
         {
             response = transformWouldYouLikeStatement(statement);
+        }
+        else if (findPhrase(statement, "I dislike", 0) >= 0)
+        {
+            response = transformIDislikeStatement(statement);
         }
         else
         {
