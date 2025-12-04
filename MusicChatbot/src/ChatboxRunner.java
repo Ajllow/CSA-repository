@@ -3,23 +3,36 @@
  */
 
 import java.util.Scanner;
-public class ChatboxRunner
-{
-    public static void main(String[] args)
-    {
-            Chatbox chatbox = new Chatbox();
-            String greeting = chatbox.getGreeting();
-            System.out.println(greeting);
-            Scanner in = new Scanner(System.in);
-            String statement = in.nextLine();
 
-            while(!statement.equalsIgnoreCase("Quit") && !statement.equalsIgnoreCase("No"))
-            {
-                String response = chatbox.getResponse(statement);
-                System.out.println(response);
+public class ChatboxRunner {
+    public static void main(String[] args) {
+        Chatbox chatbox = new Chatbox();
+        String greeting = chatbox.getGreeting();
+        System.out.println(greeting);
+
+        Scanner in = new Scanner(System.in);
+        String statement = in.nextLine();
+        int count = 0;
+
+        while (!statement.equalsIgnoreCase("Done")) {
+
+            if (statement.equalsIgnoreCase("next")) {
+                count++;
+                String goalQuestion = "What is your " + count + ". goal? It can be for today, or any other day. Just say 'I want to...'";
+                System.out.println(goalQuestion);
                 statement = in.nextLine();
+                continue;  // Skip sending "next" to Chatbox.getResponse()
             }
-        System.out.println("Thank you for the conversation. Have a nice day.");
+
+            // Otherwise get a normal response
+            String response = chatbox.getResponse(statement);
+            System.out.println(response);
+
+            statement = in.nextLine();
+        }
+
+        System.out.println("Good job planning your goals for the day! Here's what you've set for today.");
+        System.out.println(chatbox.getGoals());
         in.close();
     }
 }

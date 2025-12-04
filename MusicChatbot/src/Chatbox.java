@@ -1,20 +1,37 @@
+import java.util.ArrayList;
 public class Chatbox {
+
+    private ArrayList<String> goals = new ArrayList<>();
+
     public String getGreeting() {
-        return "Hello, what is your first goal? It can be for today, or any other day. Just say 'I want to...'";
+        return "Hello, welcome to your personal goal chatbox. Type next to set your first goal! Type done when you have set all your goals for the day.";
     }
     public String getResponse(String statement) {
         String response = "";
-        if (statement.indexOf("this week") >= 0)
+        if (statement.indexOf("morning") >= 0)
         {
-            response = "Okay, I'll make sure to track your progress this week!";
+            response = "Great, an early goal to start the morning strong!";
         }
-        else if (statement.indexOf("tomorrow") >= 0)
+        else if (findPhrase(statement, "noon", 0) >= 0)
         {
-            response = "Nice, I look forward to tomorrow.";
+            response = "Nice, I look forward to noon.";
         }
-        else if (statement.indexOf("today") >= 0)
+        else if (findPhrase(statement, "afternoon", 0) >= 0)
         {
-            response = "Today will be a very productive day.";
+            response = "That will make for a productive activity for the afternoon!";
+        }
+        else if (statement.indexOf("night") >= 0)
+        {
+            response = "Ooh, a late goal! Good idea.";
+        }
+
+        else if (statement.indexOf("no") >= 0)
+        {
+            response = "Why no?";
+        }
+        else if (statement.indexOf("yes") >= 0)
+        {
+            response = "Yes! You are doing so good!";
         }
 
         // Responses which require transformations
@@ -24,13 +41,14 @@ public class Chatbox {
         }
             return response;
         }
-    private String transformGoalStatement(String statement) {
+    public String transformGoalStatement(String statement) {
         String lastChar = statement.substring(statement.length() - 1);
         if (lastChar.equals(".")) {
             statement = statement.substring(0, statement.length() - 1);
         }
         int position = findPhrase(statement, "I want to", 0);
         String restOfStatement = statement.substring(position + 9);
+        goals.add(restOfStatement.trim());
         return "That's a good goal! When would you like to" + restOfStatement + "?";
     }
 
@@ -64,15 +82,12 @@ public class Chatbox {
             }
 
             // The last position didn't work, so let's find
-            // the next, if there is one.
+            // the next, if there isa one.
             position = phrase.indexOf(goal, position + 1);
         }
         return -1;
     }
-    private String goals()
-    {
-        String goals = "";
-        String[] data = goals.split(",");
-        return data[0];
+    public ArrayList<String> getGoals() {
+        return goals;
     }
 }
