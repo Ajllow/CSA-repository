@@ -18,7 +18,7 @@ public class ChatboxRunner {
 
             if (statement.equalsIgnoreCase("next")) {
                 count++;
-                String goalQuestion = "What is your " + count + ". goal? It can be for today, or any other day. Just say 'I want to...'";
+                String goalQuestion = "What is your " + count + ". goal? Just type 'I want to...' with your goal!";
                 System.out.println(goalQuestion);
                 statement = in.nextLine();
                 continue;  // Skip sending "next" to Chatbox.getResponse()

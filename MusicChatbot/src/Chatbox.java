@@ -33,11 +33,19 @@ public class Chatbox {
         {
             response = "Yes! You are doing so good!";
         }
+        else if (statement.equalsIgnoreCase("Hi"))
+        {
+            response = "Hi! Want to set goals?";
+        }
 
         // Responses which require transformations
         else if (findPhrase(statement, "I want", 0) >= 0)
         {
             response = transformGoalStatement(statement);
+        }
+        else
+        {
+            response = getRandomResponse();
         }
             return response;
         }
@@ -89,5 +97,13 @@ public class Chatbox {
     }
     public ArrayList<String> getGoals() {
         return goals;
+    }
+    private String getRandomResponse() {
+        final int NUMBER_OF_RESPONSES = 6;
+        int whichResponse = (int) (Math.random() * NUMBER_OF_RESPONSES);
+        String response = "";
+        String[] getRandomResponse = {"Interesting.", "Okay.", "I haven't heard that before.", "What else could you tell me about that?", "Where did you hear that?", "Please, go on."};
+        response = (getRandomResponse[whichResponse]);
+        return response;
     }
 }
