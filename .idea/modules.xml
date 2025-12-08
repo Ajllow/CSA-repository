@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CSA-repository.iml" filepath="$PROJECT_DIR$/.idea/CSA-repository.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MusicChatbot/Chatbot.iml" filepath="$PROJECT_DIR$/MusicChatbot/Chatbot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chatbot/Chatbot.iml" filepath="$PROJECT_DIR$/Chatbot/Chatbot.iml" />
       <module fileurl="file://$PROJECT_DIR$/CodingChallenge/CodingChallenge.iml" filepath="$PROJECT_DIR$/CodingChallenge/CodingChallenge.iml" />
-      <module fileurl="file://$PROJECT_DIR$/chatbot/magpie-chatbot.iml" filepath="$PROJECT_DIR$/chatbot/magpie-chatbot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/magpie/magpie.iml" filepath="$PROJECT_DIR$/magpie/magpie.iml" />
     </modules>
   </component>
 </project>
