@@ -10,15 +10,15 @@ public class Chatbox {
         String response = "";
         if (statement.indexOf("morning") >= 0)
         {
-            response = "Great, an early goal to start the morning strong!";
+            response = "Great, an early goal to start the morning strong! Anything else you want to tell me about that?";
         }
         else if (findPhrase(statement, "noon", 0) >= 0)
         {
-            response = "Nice, I look forward to noon.";
+            response = "Nice, I look forward to noon. Anything else you want to tell me about that?";
         }
         else if (findPhrase(statement, "afternoon", 0) >= 0)
         {
-            response = "That will make for a productive activity for the afternoon!";
+            response = "That will make for a productive activity for the afternoon! What else can you tell me about that?";
         }
         else if (statement.indexOf("night") >= 0)
         {
@@ -56,7 +56,7 @@ public class Chatbox {
         }
         int position = findPhrase(statement, "I want to", 0);
         String restOfStatement = statement.substring(position + 9);
-        goals.add(restOfStatement.trim());
+        goals.add(restOfStatement.trim()); // adds goals to list
         return "That's a good goal! When would you like to" + restOfStatement + "? Type morning, noon, afternoon, or night";
     }
 
