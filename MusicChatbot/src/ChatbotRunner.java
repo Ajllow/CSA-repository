@@ -4,9 +4,9 @@
 
 import java.util.Scanner;
 
-public class ChatboxRunner {
+public class ChatbotRunner {
     public static void main(String[] args) {
-        Chatbox chatbox = new Chatbox();
+        Chatbot chatbox = new Chatbot();
         String greeting = chatbox.getGreeting();
         System.out.println(greeting);
 

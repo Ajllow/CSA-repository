@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class Chatbox {
+public class Chatbot {
 
     private ArrayList<String> goals = new ArrayList<>(); // creates array list so that each goal is added to the array
 
