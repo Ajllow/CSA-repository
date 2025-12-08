@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 public class Chatbox {
 
-    private ArrayList<String> goals = new ArrayList<>();
+    private ArrayList<String> goals = new ArrayList<>(); // creates array list so that each goal is added to the array
 
     public String getGreeting() {
-        return "Hello, welcome to your personal goal chatbox. Type next to set your first goal! Type done when you have set all your goals for the day.";
-    }
-    public String getResponse(String statement) {
+        return "Hello, welcome to your personal goal chatbox. Type 'next' to set your first goal! Type 'done' when you have set all your goals for the day.";
+    } // greeting that gives instructions
+    public String getResponse(String statement) { // gets responses that are either random, detecting time or keywords, or transforming statements
         String response = "";
         if (statement.indexOf("morning") >= 0)
         {
@@ -49,7 +49,7 @@ public class Chatbox {
         }
             return response;
         }
-    public String transformGoalStatement(String statement) {
+    public String transformGoalStatement(String statement) { // detects the goal using find phrase method and transforms the goal into a response
         String lastChar = statement.substring(statement.length() - 1);
         if (lastChar.equals(".")) {
             statement = statement.substring(0, statement.length() - 1);
@@ -57,11 +57,11 @@ public class Chatbox {
         int position = findPhrase(statement, "I want to", 0);
         String restOfStatement = statement.substring(position + 9);
         goals.add(restOfStatement.trim());
-        return "That's a good goal! When would you like to" + restOfStatement + "?";
+        return "That's a good goal! When would you like to" + restOfStatement + "? Type morning, noon, afternoon, or night";
     }
 
 
-    private int findPhrase(String statement, String goal, int startPos) {
+    private int findPhrase(String statement, String goal, int startPos) { // detect the phrase in a statement when method is called
         String phrase = statement.trim().toLowerCase();
         goal = goal.toLowerCase();
 
@@ -96,9 +96,9 @@ public class Chatbox {
         return -1;
     }
     public ArrayList<String> getGoals() {
-        return goals;
+        return goals; // return goals in a list format once 'done' is typed
     }
-    private String getRandomResponse() {
+    private String getRandomResponse() { // random responses when statement is not using keywords
         final int NUMBER_OF_RESPONSES = 6;
         int whichResponse = (int) (Math.random() * NUMBER_OF_RESPONSES);
         String response = "";

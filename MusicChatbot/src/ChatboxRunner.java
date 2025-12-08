@@ -16,7 +16,7 @@ public class ChatboxRunner {
 
         while (!statement.equalsIgnoreCase("Done")) {
 
-            if (statement.equalsIgnoreCase("next")) {
+            if (statement.equalsIgnoreCase("next")) { // detects amount of goals through the loop
                 count++;
                 String goalQuestion = "What is your " + count + ". goal? Just type 'I want to...' with your goal!";
                 System.out.println(goalQuestion);
@@ -31,7 +31,7 @@ public class ChatboxRunner {
             statement = in.nextLine();
         }
 
-        System.out.println("Good job planning your goals for the day! Here's what you've set for today.");
+        System.out.println("Good job planning your goals for the day! Here's what you've set for today."); // response once 'done' is typed
         System.out.println(chatbox.getGoals());
         in.close();
     }
