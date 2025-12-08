@@ -4,7 +4,7 @@ public class Chatbot {
     private ArrayList<String> goals = new ArrayList<>(); // creates array list so that each goal is added to the array
 
     public String getGreeting() {
-        return "Hello, welcome to your personal goal chatbox. Type 'next' to set your first goal! Type 'done' when you have set all your goals for the day.";
+        return "Hello, welcome to your personal goal chatbot. Type 'next' to set your first goal! Type 'done' when you have set all your goals for the day.";
     } // greeting that gives instructions
     public String getResponse(String statement) { // gets responses that are either random, detecting time or keywords, or transforming statements
         String response = "";
