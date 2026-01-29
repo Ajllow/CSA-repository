@@ -6,29 +6,23 @@ public class VirtualPet {
     private int ageYears;
     private int ageMonths;
 
-    public VirtualPet(String n) //constructor with name
+    // Constant Variables
+    private static final int MINIMUM_WEIGHT = 5;
+    private static final int MAXIMUM_LEVEL = 10;
+
+    public VirtualPet(String petName) //constructor with name
     {
-        name = n;
+        name = petName;
+        energyLevel = 0;
+        happinessLevel = 0;
+        weight = MINIMUM_WEIGHT;
+        ageMonths = 0;
+        ageYears = 0;
     }
 
     public String getName()
     {
         return name;
-    }
-
-    public String toString()
-    {
-        return name + "'s information: Energy level: " + energyLevel + ", Happiness level: "
-        + happinessLevel+ " weight: " + weight + ", ageYears: " + ageYears + ", ageMonths: " + ageMonths;
-    }
-
-    public void feed()
-    {
-        if (getEnergyLevel() <= 10)
-        {
-            energyLevel = getEnergyLevel() + 1;
-        }
-        weight = weight + 1;
     }
     public int getEnergyLevel()
     {
@@ -38,21 +32,40 @@ public class VirtualPet {
     {
         return happinessLevel;
     }
+
+    public void feed()
+    {
+        if (energyLevel != MAXIMUM_LEVEL)
+        {
+            energyLevel++;
+        }
+        weight++;
+    }
+    public String toString()
+    {
+        return name + "'s Information:\nEnergy: " + energyLevel + "\nHappiness: "
+                + happinessLevel + "\nWeight: " + weight + " g\nAge: "
+                + ageMonths + " months and " + ageYears + " years";
+    }
+
     public void play()
     {
-        if (getHappinessLevel() <= 10)
-            happinessLevel = getHappinessLevel() + 1;
-        if (weight > 5)
-            weight = weight - 1;
+        if (happinessLevel != MAXIMUM_LEVEL)
+            happinessLevel++;
+        if (weight != MINIMUM_WEIGHT)
+            weight--;
     }
     public void updateStatus()
     {
-        if (getEnergyLevel() <= 10 && getEnergyLevel() >= 0)
-            energyLevel = getEnergyLevel() -1;
-        if (getHappinessLevel() <= 10 && getHappinessLevel() >= 0)
-            happinessLevel = getHappinessLevel() -1;
+        if (energyLevel <= MAXIMUM_LEVEL && energyLevel >= 0)
+            energyLevel--;
+        if (happinessLevel <= MAXIMUM_LEVEL && happinessLevel >= 0)
+            happinessLevel--;
 
-        ageMonths = ageMonths + 1; // how to change years every 12 months?
-        ageYears = ageYears + 1;
+        ageMonths++;
+        if (ageMonths == 12) {
+            ageYears++;
+            ageMonths = 0;
+        }
     }
 }
