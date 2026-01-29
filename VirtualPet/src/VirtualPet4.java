@@ -1,4 +1,4 @@
-public class VirtualPet {
+public class VirtualPet4 {
     private String name;
     private int energyLevel;
     private int happinessLevel;
@@ -10,7 +10,7 @@ public class VirtualPet {
     private static final int MINIMUM_WEIGHT = 5;
     private static final int MAXIMUM_LEVEL = 10;
 
-    public VirtualPet(String petName) //constructor with name
+    public VirtualPet4(String petName) //constructor with name
     {
         name = petName;
         energyLevel = 0;
@@ -33,7 +33,7 @@ public class VirtualPet {
         return happinessLevel;
     }
 
-    public void feed()
+    public void feed(Food f)
     {
         if (energyLevel != MAXIMUM_LEVEL)
         {
@@ -48,18 +48,23 @@ public class VirtualPet {
                 + ageMonths + " months and " + ageYears + " years";
     }
 
-    public void play()
+    public boolean play(Game g)
     {
         if (happinessLevel != MAXIMUM_LEVEL)
             happinessLevel++;
         if (weight != MINIMUM_WEIGHT)
             weight--;
+        if (g.isWinner()){
+            return true;
+        }
+        else
+            return false;
     }
     public void updateStatus()
     {
-        if (energyLevel <= MAXIMUM_LEVEL && energyLevel >= 0)
+        if (energyLevel <= MAXIMUM_LEVEL && energyLevel > 0)
             energyLevel--;
-        if (happinessLevel <= MAXIMUM_LEVEL && happinessLevel >= 0)
+        if (happinessLevel <= MAXIMUM_LEVEL && happinessLevel > 0)
             happinessLevel--;
 
         ageMonths++;
