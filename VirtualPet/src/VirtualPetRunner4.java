@@ -9,7 +9,7 @@ public class VirtualPetRunner4
     public static int getChoice(Scanner input)
     {
         int selection = 0;
-        while (selection < 1 || selection > 4)
+        while (selection < 1 || selection > 5)
         {
             System.out.println("------Virtual Pet Menu------");
             System.out.println("1. Get Pet Information");
@@ -21,6 +21,7 @@ public class VirtualPetRunner4
         }
         return selection;
     }
+
 
     // Prints out food options and returns user choice
     public static int getPantry(Scanner input)
@@ -119,7 +120,15 @@ public class VirtualPetRunner4
                     System.out.println("\n\nYou have fed " + myPet.getName()
                             + " 1 " + f.getName());
                 }
+                myPet.bathroom();
             }
+
+            else if (choice == 5)
+            {
+                System.out.println("You have cleaned " + myPet.getName());
+                myPet.bathroom();
+            }
+
             else if (choice == 3)
             {
                 System.out.println("Select a game to play.");
@@ -141,6 +150,7 @@ public class VirtualPetRunner4
                     else
                         System.out.println(myPet.getName() + " has lost!");
                 }
+                myPet.bathroom();
             }
             if (myPet.getEnergyLevel() >= 5  && myPet.getHappinessLevel() >= 5)
                 printPet("ᵕ");

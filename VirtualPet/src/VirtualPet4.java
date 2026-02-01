@@ -5,6 +5,7 @@ public class VirtualPet4 {
     private double weight;
     private int ageYears;
     private int ageMonths;
+    private int healthLevel;
 
     // Constant Variables
     private static final int MINIMUM_WEIGHT = 5;
@@ -18,6 +19,7 @@ public class VirtualPet4 {
         weight = MINIMUM_WEIGHT;
         ageMonths = 0;
         ageYears = 0;
+        healthLevel = 0;
     }
 
     public String getName()
@@ -45,7 +47,7 @@ public class VirtualPet4 {
     {
         return name + "'s Information:\nEnergy: " + energyLevel + "\nHappiness: "
                 + happinessLevel + "\nWeight: " + weight + " g\nAge: "
-                + ageMonths + " months and " + ageYears + " years";
+                + ageMonths + " months and " + ageYears + " years" + "\nHealth: " + healthLevel;
     }
 
     public boolean play(Game g)
@@ -62,6 +64,8 @@ public class VirtualPet4 {
     }
     public void updateStatus()
     {
+        healthLevel = happinessLevel + energyLevel;
+
         if (energyLevel <= MAXIMUM_LEVEL && energyLevel > 0)
             energyLevel--;
         if (happinessLevel <= MAXIMUM_LEVEL && happinessLevel > 0)
@@ -71,6 +75,13 @@ public class VirtualPet4 {
         if (ageMonths == 12) {
             ageYears++;
             ageMonths = 0;
+        }
+    }
+    public void bathroom()
+    {
+        if (Math.random() < 0.2)
+        {
+            System.out.println(name +" has used the bathroom! press '5' to clean it!");
         }
     }
 }
